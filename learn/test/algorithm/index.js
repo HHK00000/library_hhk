@@ -69,23 +69,23 @@ let str = '-42px';
 console.log(atoi(str));
 // */
 // 回文数
- /*
+/*
 // 1.判断数字是回文数字
 function palindrome(num){
-    if(typeof num !== 'number'||num<0){
-        return false;
-    }
-    let palindrome_num = num.toString().split('').reverse().join('');
-    if(palindrome_num != num){
-        return false;
-    }
-    return true;
+   if(typeof num !== 'number'||num<0){
+       return false;
+   }
+   let palindrome_num = num.toString().split('').reverse().join('');
+   if(palindrome_num != num){
+       return false;
+   }
+   return true;
 }
 console.log(palindrome(123321));
 // */
-// 2.判断字符串是回文字符串
+// 回文字符串
 /*
-
+// 2.判断字符串是回文字符串
 function palindromeString(str){
     if(typeof str !== 'string'){
         return false;
@@ -123,4 +123,110 @@ function areaMax(arr){
 let arr = [1,8,6,2,5,4,8,3,7];
 areaMax(arr);
 // */
-// 罗马数字转整数
+// 罗马数字转整数  //输入在0~3999之间
+/*
+function RomanToNum(str) {
+    let mapList = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    }
+    let result = 0,Max_Index,Max_Str,direction;
+    let strList = str.split('');
+    let RomanList = Object.keys(mapList);
+    for(let i=RomanList.length-1;i>-1;i--){
+        let item = RomanList[i];
+        Max_Index = strList.indexOf(item);
+        if(Max_Index>-1){
+            Max_Str = item;
+            break;
+        }
+    }
+    Max_Index === 0?direction = 'right': direction= 'left';
+    if(direction === 'right'){
+        strList.map(item=>{
+            result+=mapList[item];
+        })
+    }
+    if(direction === 'left'){
+        for(var i = 0;i< strList.length-1;i++){
+            let item = strList[i];
+            result +=mapList[item];
+        }
+        result = mapList[Max_Str] - result;
+    }
+    // console.log(result);
+    return result;
+}
+console.log(RomanToNum('IX'));
+//*/
+/*
+// 最长公共前缀
+function publicPerfix(arr){
+    let result = '',arrItem;
+    for(var i=0;i< arr.length;i++){
+        let item = arr[i];
+        if(i===0){
+            arrItem=item.split('');
+        } else {
+            let itemToArr = item.split('');
+            let newArrItem = []
+            for(var j=0;j<itemToArr.length;j++){
+                if(itemToArr[j]!==arrItem[j]){
+                    arrItem = newArrItem;
+                    break;
+                }
+                newArrItem.push(itemToArr[j]);
+            }
+        }
+    }
+    result = arrItem.join('');
+    console.log(result);
+    return result;
+}
+publicPerfix(['asd','asc','aser']);
+// */
+/*
+// 三数之和
+function tripleAdd(arr){
+    let result=[];
+    for(let i=0;i<arr.length-2;i++){
+        let numI = arr[i];
+        for(let j=i+1;j<arr.length-1;j++){
+            let numJ= arr[j];
+            for(let k=j+1;k<arr.length;k++){
+                let numK=arr[k];
+                let sum = numI+numJ+numK;
+                if(sum === 0){
+                    result.push([numI,numJ,numK]);
+                }
+            }
+        }
+    }
+    //result去重 [-1,0,1]和[1,-1,0]视为两个相同项
+    if(result.length>1){
+        for(let i=0;i<result.length-1;i++){
+            let res1=result[i];
+            let num1=res1[0],num2=res1[1],num3=res1[2];
+            for(let j=i+1;j<result.length;j++){
+                let res2 = result[j];
+                //bool标识res1和res2是否为相同的两项
+                let bool = res2.indexOf(num1)>-1&&res2.indexOf(num2)>-1&&res2.indexOf(num3)>-1;
+                if(bool){
+                    result.splice(j,1);
+                    i--;
+                    j--;
+                }
+            }
+        }
+    }
+
+    console.log(result);
+    return result;
+}
+tripleAdd([-1,0,1,2,-1,-4]);
+// */
