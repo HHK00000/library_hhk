@@ -230,3 +230,33 @@ function tripleAdd(arr){
 }
 tripleAdd([-1,0,1,2,-1,-4]);
 // */
+// /*
+// 电话号码的字母组合
+
+function alphabet(params){
+    let mapList = {
+        '2': ['a','b','c'],
+        '3': ['d','e','f'],
+        '4': ['g','h','i'],
+        '5': ['j','k','l'],
+        '6': ['m','n','o'],
+        '7': ['p','q','r','s'],
+        '8': ['t','u','v'],
+        '9': ['w','x','y','z']
+    }
+    let result = [],resultItem = [];
+    let arrPre = params.split('');
+    for(let i=0;i<arrPre.length;i++){
+        let item = arrPre[i]; //item 为数字2/9/4/3
+        let letterList = mapList[item];
+        resultItem.push(letterList);
+    }
+    
+    
+    result = resultItem;
+    console.log(result);
+    return result;
+}
+let str_alphabet = '2943';
+alphabet(str_alphabet);
+// */
