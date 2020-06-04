@@ -355,7 +355,16 @@ sunFourNum(arr, target);
 
 // /*
 // 有效的括号
+function effectBrackets(str){
+    let result;
+    for(let s of str){
+        console.log(s);
+    }
 
+    return result;
+}
+let str_brackets = '({{[]}})';
+effectBrackets(str_brackets);
 // */
 
 // /*
