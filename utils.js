@@ -108,7 +108,7 @@ function throttle(func, wait) {
  * @param wait 延迟执行毫秒数
  * @param type 1 表时间戳版，2 表定时器版
  */
-// /*
+/*
 function throttle(func, wait ,type) {
     if(type===1){
         let previous = 0;

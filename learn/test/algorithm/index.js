@@ -230,7 +230,7 @@ function tripleAdd(arr){
 }
 tripleAdd([-1,0,1,2,-1,-4]);
 // */
-// /*
+/*
 // 电话号码的字母组合
 
 function alphabet(params){
@@ -252,11 +252,113 @@ function alphabet(params){
         resultItem.push(letterList);
     }
     
-    
+
     result = resultItem;
     console.log(result);
     return result;
 }
 let str_alphabet = '2943';
 alphabet(str_alphabet);
+// */
+/*
+
+function alphabet(digits){
+    if(digits.length == 0) return;
+    let result = [];
+    let numMap = {
+        '2': 'abc',
+        '3': 'def',
+        '4': 'ghi',
+        '5': 'jkl',
+        '6': 'mno',
+        '7': 'pqrs',
+        '8': 'tuv',
+        '9': 'wxyz'
+    }
+    for(let code of digits){
+        let word = numMap[code];
+        if(result.length >0){
+            let temp = [];
+            for(let char of word){
+                for(let old of result){//三重for of 循环
+                    temp.push(old+char);
+                }
+            }
+            result = temp;
+        }
+        else {
+            result.push(...word);
+        }
+    }
+    console.log(result);
+    return result;
+}
+let str_alphabet = '2943';
+alphabet(str_alphabet);
+// */
+
+
+/* for 和 forEach哪个性能更好
+// for 和 forEach哪个性能更好 --- 实测跟数组是否为empty有关 
+let arr=Array(9000000);
+arr.fill(0);//不往数组里面塞东西的话 forEach性能更好 反之 for性能更好
+console.time('for');
+for(let i=0;i<arr.length;i++){
+
+}
+console.timeEnd('for');
+console.time('forEach');
+arr.forEach(item=>{})
+console.timeEnd('forEach');
+//*/
+
+/*
+// 四数之和  arr = [2,0,-1，-1,3] target = 0 =>  [2,0,-1，-1]
+
+function sunFourNum(arr, target) {
+    //默认arr为数组且长度至少为4 target为一个number整数 不再做输入校验
+    let arrList = [];
+    for (let i = 0; i < arr.length - 3; i++) {
+        let valueI = arr[i];
+        for (let j = i+1; j < arr.length - 2; j++) {
+            let valueJ = arr[j];
+            for (let k = j+1; k < arr.length - 1; k++) {
+                let valueK = arr[k];
+                for (let m = k+1; m < arr.length; m++) {
+                    let valueM = arr[m];
+                    let sumFour = valueI + valueJ + valueK + valueM;
+                    if (sumFour === target) {
+                        let sumSingle = [valueI, valueJ, valueK, valueM];
+                        //对数组内元素相同 顺序不同的元素进行去重 
+                        let arrListClone = arrList.slice();
+                        if(arrListClone.length ===0){
+                            arrList.push(sumSingle);
+                            continue;
+                        }
+                        arrListClone.map(item=>{
+                            let repeat = item.includes(valueI)&&item.includes(valueJ)&&item.includes(valueK)&&item.includes(valueM);
+                            repeat?null:arrList.push(sumSingle);
+                        })
+                    }
+                }
+            }
+        }
+    }
+    console.log(arrList);
+    return arrList;
+}
+
+let arr = [2, 1, 0,-1, 1,-2];
+let target = 1;
+sunFourNum(arr, target);
+// */
+
+// /*
+// 有效的括号
+
+// */
+
+// /*
+// 
+
 // */
