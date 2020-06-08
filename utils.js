@@ -136,3 +136,59 @@ function throttle(func, wait ,type) {
     }
 }
 // */
+
+/*
+// 图片 字符串url 转 base64格式
+//实现将项目的图片转化成base64
+function convertImgToBase64(url, callback, outputFormat){
+    var canvas = document.createElement('canvas'),
+　　ctx = canvas.getContext('2d'),
+　　img = new Image;
+　　img.crossOrigin = 'Anonymous';
+　　img.onload = function(){
+    　　canvas.height = img.height;
+    　　canvas.width = img.width;
+    　　ctx.drawImage(img,0,0);
+    　　var dataURL = canvas.toDataURL(outputFormat || 'image/png');
+    　　callback.call(this, dataURL);
+    　　canvas = null; 
+    };
+　　img.src = url;
+}
+// 调用示例
+var url = "static/img/js1.jpg";//这是站内的一张图片资源，采用的相对路径
+utils.convertImgToBase64(url, function(base64Img){
+    console.log(base64Img);
+});
+// */
+
+/*
+// 事件派发、blob转base64 ---  未测验 无blob数据
+
+let input_dom = document.createElement('input');
+input_dom.type='file';
+// input_dom.value = url;
+input_dom.addEventListener('change',readFile,false);
+let evObj = document.createEvent('HTMLEvents');
+evObj.initEvent( 'change', true, true );
+input_dom.dispatchEvent(evObj);
+function readFile(){
+    console.log(this,'调用onchange事件')
+    console.dir(this)
+    var file=url;
+    // if(!/image\/\w+/.test(file.type)){ 
+    // 	alert("请确保文件为图像类型"); 
+    // 	console.log(file.type);
+    //     return false; 
+    // }
+    var reader=new FileReader();
+    
+    // let result = reader.readAsDataURL(file);
+    // console.log(result,'result')
+    // reader.function(){
+    //     base64_code.innerHTML = this.result; 
+    //     img_area.innerHTML = '<div>图片img标签展示：</div><img src="'+this.result+'" alt=""/>'; 
+    // }
+}
+
+// */
