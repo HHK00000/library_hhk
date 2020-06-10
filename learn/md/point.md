@@ -15,3 +15,6 @@ vue渐进式框架
     - DOM增删 元素宽高改变会引发回流 颜色 透明度触发重绘
 防抖和节流
     - 防抖函数 用于解决事件频繁触发
+---0525
+cookie、session、sessionStorage、localStorage的区别
+    - 

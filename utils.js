@@ -192,3 +192,14 @@ function readFile(){
 }
 
 // */
+
+/*
+// 数组转对象 --- 不使用for map等任何循环
+// [{name:'a',value:'a1'}] -> {a:'a1'}
+function arrToObj([obj,...rest],res={}){
+    if(obj){
+        res[obj.name]=obj.value;
+        return arrToObj(rest,res);
+    }else return res;
+}
+// */

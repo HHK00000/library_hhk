@@ -11,6 +11,23 @@
         .title {
             font-size: 2rem;
         }
+        .test_vertical {
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+        }
+        .test_vertical_inner {
+            /* display: inline-block; */
+            /* display:table-cell; */
+            vertical-align: middle;
+            height: 40px;
+            background: blue;
+            
+            line-height: 100px;
+        }
+        .test_vertical_span {
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -18,5 +35,15 @@
         大盒子
         <div class="title">标题</div>
     </div>
+    <div class="test_vertical">
+        <!-- <span class="test_vertical_span"></span> -->
+        <div class="test_vertical_inner">
+            测试vertical
+        </div>
+    </div>
 </body>
 </html>
+<script>
+    import a from 'https://cdn-mdj.oss-cn-beijing-internal.aliyuncs.com/AICounselor/default.json';
+console.log(a,'aaaaaaaaaaaaa')
+</script>
