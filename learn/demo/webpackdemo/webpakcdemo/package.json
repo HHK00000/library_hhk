@@ -1,0 +1,11 @@
+{
+  "name": "webpackdemo",
+  "version": "1.0.0",
+  "description": "webpackdemo --- 20200611",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hhk --- 20200611",
+  "license": "ISC"
+}
