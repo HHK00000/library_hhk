@@ -353,7 +353,7 @@ let target = 1;
 sunFourNum(arr, target);
 // */
 
-// /*
+// /* ---- 未完成
 // 有效的括号
 function effectBrackets(str){
     let result;
@@ -368,6 +368,54 @@ effectBrackets(str_brackets);
 // */
 
 // /*
-// 
+//  ES6  实现输出两个数组中重复原素
+let arr1 = [1,2,2,3,4],
+    arr2 = [2,3,3,4,5];
+let arrDouble = arr1.reduce(function(prev,cur,index,arr){
+    // arr2.indexOf(cur)>-1?prev.push(cur):null;
+    arr2.indexOf(cur)>-1?prev.push(cur):null;
+    prev = Array.from(new Set(prev));
+    return prev;
+},[]);
+console.log(arrDouble);
+// */
+
+/*
+// ES6 实现 输入 abbbbbcddffbbb输出abcdfb
+let str1 = 'abbbbbcddffbbb';
+function  removalRepeat(str){
+    return str.split('').reduce(function(prev,cur,index,arr){
+        console.log(prev,cur,index,arr);
+        cur === prev[prev.length-1]? null:prev.push(cur);
+        index === str.length-1? prev = prev.join(''):null;
+        return prev;
+    },[]);
+}
+let str = removalRepeat(str1);
+console.log(str);
+//*/
+
+/*
+// 使用正则实现  电话号码中间四位星号隐藏
+let phoneNum = '18788888888';
+let encryption_phoneNum = phoneNum.replace(/^(\d{3})(\d{4})(\d{4})/,"$1****$3")
+console.log(encryption_phoneNum);
+// */
+
+/*
+// 打印html中所有标签
+var s = "";
+function travel(space,node){
+    if(node.tagName){
+        console.log(node.tagName);
+        s += space + node.tagName + '<br/>';
+    }
+    var len = node.childNodes.length;
+    for(let i=0;i<len;i++){
+        travel(space+'|-',node.childNodes[i]);
+    }
+}
+travel('',document);
+document.write(s);
 
 // */

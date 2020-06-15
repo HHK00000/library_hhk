@@ -50,20 +50,20 @@ function count() {
 //     }
 // }
 
-// function throttle(func, wait) { // 闭包 返回值函数里用到的timeout不会被销毁
-//     let timeout;
-//     return function() {
-//         let context = this;
-//         let args = arguments;
-//         if (!timeout) {
-//             timeout = setTimeout(() => {
-//                 timeout = null;
-//                 func.apply(context, args)
-//             }, wait)
-//         }
+function throttle(func, wait) { // 闭包 返回值函数里用到的timeout不会被销毁
+    let timeout;
+    return function() {
+        let context = this;
+        let args = arguments;
+        if (!timeout) {
+            timeout = setTimeout(() => {
+                timeout = null;
+                func.apply(context, args)
+            }, wait)
+        }
 
-//     }
-// }
+    }
+}
 
 // content.onmousemove = debounce(count,1000);
 
