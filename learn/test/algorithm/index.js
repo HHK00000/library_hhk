@@ -367,7 +367,7 @@ let str_brackets = '({{[]}})';
 effectBrackets(str_brackets);
 // */
 
-// /*
+/*
 //  ES6  实现输出两个数组中重复原素
 let arr1 = [1,2,2,3,4],
     arr2 = [2,3,3,4,5];
@@ -419,3 +419,22 @@ travel('',document);
 document.write(s);
 
 // */
+
+// /*
+// 打印0-10000之间的所有 "回文数"
+console.log('test')
+function findPalindromeNumber (max){
+    let result = [];
+    for(let i=0;i<=max;i++){
+        let iStr = i+'';
+        let jStr = iStr.split('').reverse().join('');
+        if(iStr === jStr){
+            result.push(i);
+        }
+    }
+    return result;
+}
+let max = 10000;
+let arr = findPalindromeNumber(max);
+console.log(arr);
+//  */
