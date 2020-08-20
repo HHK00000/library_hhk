@@ -353,7 +353,7 @@ let target = 1;
 sunFourNum(arr, target);
 // */
 
-// /* ---- 未完成
+/* --- 栈的思想
 // 有效的括号
 function effectBrackets(str){
     let result;
@@ -366,9 +366,36 @@ function effectBrackets(str){
 let str_brackets = '({{[]}})';
 effectBrackets(str_brackets);
 // */
+/*
+var isValid = function (str){
+    let leftRightList = {
+        '(': ')',
+        '{': '}',
+        '[': ']'
+    }
+    if(typeof str !== 'string' || str.length === 0 || str.length%2 === 1){
+        return false;
+    }
+    let arr = [];
+    for(let val of str){
+        if(leftRightList[val]){
+            arr.push(val)
+        }else{
+            const leftSymbol = arr.pop();
+            let rightExpectSymbol = leftRightList[leftSymbol];
+            if(rightExpectSymbol !== val){
+                return false
+            }
+        }
+    }
+    return true;
+}
+let str = "()[]}{"
+console.log(isValid(str));
+// */
 
 /*
-//  ES6  实现输出两个数组中重复原素
+//  ES6  实现输出两个数组中重复元素
 let arr1 = [1,2,2,3,4],
     arr2 = [2,3,3,4,5];
 let arrDouble = arr1.reduce(function(prev,cur,index,arr){
@@ -420,7 +447,7 @@ document.write(s);
 
 // */
 
-// /*
+/*
 // 打印0-10000之间的所有 "回文数"
 console.log('test')
 function findPalindromeNumber (max){
@@ -438,3 +465,87 @@ let max = 10000;
 let arr = findPalindromeNumber(max);
 console.log(arr);
 //  */
+
+/*
+// 寻找两个正序数组的中位数  ---  中位数的概念
+function middleNum(nums1,nums2){
+    let middle1,middle2,flag = true;
+    if(nums1.length === 0){
+        middle1 = 0;
+        flag = false;
+    }else if(nums1.length%2 === 1){
+        middle1 = nums1[(nums1.length-1)/2]
+    }else{
+        middle1 = (nums1[nums1.length/2] + nums1[nums1.length/2-1])/2 
+    }
+    if(nums2.length === 0){
+        middle2 = 0;
+        flag = false;
+    }else if(nums2.length%2 === 1){
+        middle2 = nums2[(nums2.length-1)/2]
+    }else{
+        middle2 = (nums2[nums2.length/2] + nums2[nums2.length/2-1])/2 
+    }
+    console.log(middle1, middle2)
+    if(flag === false){
+        return middle1 + middle2;
+    } else {
+        return (middle1 + middle2)/2;
+    }
+}
+let nums1 = [1,2];
+let nums2 = [4];
+console.log(middleNum(nums1,nums2));
+// */
+
+/*
+// 盛最多水的容器
+let arr = [1,8,6,2,5,4,8,3,7];
+function maxContain(arr){
+    let max = 0,maxI,maxJ;
+    for(var i=0;i<arr.length -1;i++){
+        for(var j=i+1;j<arr.length;j++){
+            // 假定j大于i
+            let x = j-i;
+            // let y = Math.abs(arr[j]-arr[i]);
+            let y = arr[j] > arr[i]? arr[i]:arr[j];
+            if(x*y>max){
+                max = x*y;
+                maxI = i;
+                maxJ= j;
+            }
+        }
+    }
+    console.log({
+        maxI,
+        maxJ,
+        max
+    })
+    return max
+}
+console.log(maxContain(arr));
+// */
+
+/*
+// 最接近的三数之和
+function threble(nums,target){
+    let absArr = [];
+    nums.map((item,index) => {
+        debugger
+        let abs = Math.abs(item-target);
+        absArr.push({
+            index,
+            abs
+        })
+    })
+    // console.log(absArr,'排序前');
+    absArr.sort((a, b) => {
+        return a.abs-b.abs
+    })
+    // console.log(absArr,'排序后');
+    let sum = nums[absArr[0].index] + nums[absArr[1].index] + nums[absArr[2].index];
+    return sum;
+}
+let nums = [5,-1,2,1,-4], target = 1;
+console.log(threble(nums,target));
+// */
