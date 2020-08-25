@@ -1,4 +1,4 @@
-// example
+// /* example
 // async function timeout(){
 //   return 'Hello World!';
 // }
@@ -26,6 +26,7 @@
 // let res =  timeout();
 // console.log(res);
 // console.log('虽然我在后面 但我先执行')
+// */
 
 /*
 // [return_value] = await expression; await 只能在 async函数中使用
@@ -95,7 +96,7 @@ async function timer (time,interval = 1000){ // time 是一个整数 在 time �
 timer(5,1000)
 // */
 
-/* 2.Promise then + setTimeout
+/* 2.Promise then + setTimeout + let
 async function timer(time,interval = 1000){
   for(let i = 1;i <= time;i++){
     new Promise((resolve,reject) =>{
@@ -110,7 +111,7 @@ async function timer(time,interval = 1000){
 timer(5,1000);
 //*/
 
-/* 3.Promise then + setTimeout  
+/* 3.Promise then + setTimeout  + let
 async function timer(time,interval = 1000){
   for(let i = 1;i <= time;i++){
     new Promise((resolve,reject) =>{
