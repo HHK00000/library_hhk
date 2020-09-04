@@ -549,3 +549,45 @@ function threble(nums,target){
 let nums = [5,-1,2,1,-4], target = 1;
 console.log(threble(nums,target));
 // */
+/*
+// 删除排序数组中的重复元素 并返回最终数组长度 要求空间复杂度O(1)
+let arr = [0,0,1,2,2,2,3,4,5,6,6,6];
+function getLength(arr){
+    if(!Array.isArray(arr)){
+        return '请输入一个数组';
+    }
+    let pre,now;
+    for(var i = 0;i < arr.length;i++){
+        i>0?pre=arr[i-1]:null;
+        now = arr[i];
+        if(i>0){
+            if(now === pre){
+                arr.splice(i,1);
+                i--;
+            }
+        }
+    }
+    return arr.length;
+}
+console.log(getLength(arr));
+// 双指针问题 
+
+function getLength1(nums){
+    if (nums == null || nums.length == 0) {
+        return 0;
+    }
+    let i = 0;
+    let j = i + 1;
+    while (j < nums.length) {
+        if (nums[i] == nums[j]) {
+            j++;
+        } else {
+            nums[i + 1] = nums[j];
+            i++;
+            j++;
+        }
+    }
+    return i + 1;
+}
+
+// */
