@@ -591,3 +591,51 @@ function getLength1(nums){
 }
 
 // */
+// /*
+// 移除元素  原地移除所有值为val的元素 返回移除后的长度 仅适用O(1)额外空间并原地修改输入数组
+let nums = [0,1,2,2,3,0,4,2], val = 2;
+function removeElement (arr,val){
+    let j = 0;
+    while(j<arr.length){
+        if(arr[j]===val){
+            arr.splice(j,1);
+        }else{
+            j++;
+        }
+    }
+    return arr.length
+}
+
+// console.log(removeElement(nums,val),nums)
+// 拷贝覆盖
+function copy (nums,val){
+    let ans = 0;
+    for(var num =0;num < nums.length;num++){
+        if(nums[num] !== val){
+            nums[ans] = nums[num];
+            ans++;
+        }
+    }
+    return ans;
+}
+// console.log(copy(nums,val),nums);
+// 交换移除
+function changeRemove (nums,val){
+    let ans = nums.length;
+    for(var i = 0;i < ans;){
+        if(nums[i] === val){
+            nums[i] = nums[ans-1]; //遇到与val相同的项把 最后一项移到当前位置替换掉与val相同项 i不增加 继续遍历移动后的数值 ans-- 遍历最大长度减一(变相使数组少遍历最后一项)
+            ans--
+        } else {
+            i++;
+        }
+    }
+    return ans
+}
+console.log(changeRemove(nums,val),nums);
+// */
+
+// */
+// /*
+//
+// */
