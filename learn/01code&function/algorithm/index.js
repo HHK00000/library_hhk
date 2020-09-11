@@ -591,7 +591,8 @@ function getLength1(nums){
 }
 
 // */
-// /*
+
+/*
 // 移除元素  原地移除所有值为val的元素 返回移除后的长度 仅适用O(1)额外空间并原地修改输入数组
 let nums = [0,1,2,2,3,0,4,2], val = 2;
 function removeElement (arr,val){
@@ -635,7 +636,10 @@ function changeRemove (nums,val){
 console.log(changeRemove(nums,val),nums);
 // */
 
+// /*
+//
 // */
+
 // /*
 //
 // */
