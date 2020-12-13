@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <div class="top">top</div>
+    <div class="main">
+      <button id="add">add</button>
+      <div id="list"></div>
+    </div>
+  </div>
+</body>
+</html>
+<script>
+  // MutationObserver接口提供了监视对DOM树所做更改的能力。它被设计为旧的Mutation Events功能的替代品，该功能是 DOM3 Events规范的一部分。
+  // MutationObserver() 创建并返回一个新的 MutationObserver 它会在指定的DOM发生变化时被调用。
+</script>
+<script>
+  // DOM3 Event 规范
+  var n = 1;
+  // var list = document.querySelector('#list');
+  // 绑定一个监听事件 添加dom元素
+  add.addEventListener('click', (e) => {
+    // console.log(e);
+    let dom = document.createElement('div');
+    dom.innerHTML = '插入第' + n + '个';
+    n++;
+    list.appendChild(dom);
+    if(n > 30&&observer){
+      observer.disconnect();
+    }
+  })
+  // 观察者模式的配置参数
+  let config = {
+    attributes: true,
+    childList: true,
+    subtree: true
+  }
+  // 观察者模式回调 触发观察者变化时 触发回调函数
+  let callback = function (mutationList, observer){
+    for(let mutation of mutationList){
+      if(mutation.type === 'childList'){
+        console.log('child append');
+      }
+      if(mutation === 'attributes'){
+        console.log('attributes has changed');
+      }
+    }
+  }
+  // 创建观察器实例 并传入回调函数
+  const observer = new MutationObserver(callback);
+  // 为观察器传入观察的dom目标和观察器参数 开始进行观察
+  observer.observe(box, config);
+  // 停止观察
+  observer.disconnect();
+</script>
