@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        button {
+            width: 100px;
+            height: 40px;
+            font-size: 22px;
+            margin: 20px;
+        }
+        .box1 {
+            width: 100%;
+            height: 300px;
+            background-color: #eee;
+            position: relative;
+        }
+        .box2 {
+            position: absolute;
+            left: 0;
+            top: 100px;
+            background-color: skyblue;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+
+</head>
+<body>
+<button>到原位</button>
+<button>到200.5</button>
+<button>到400</button>
+<div class="box1">
+    <div class="box2" id="box2">
+        银钱双戟丧尽古今人品，穷之一穴埋没多少英雄...
+    </div>
+</div>
+<script>
+    //获取元素
+    var btnArr=document.getElementsByTagName("button")
+    var box2=document.getElementById("box2")
+    //绑定事件
+    btnArr[0].onclick=function(){
+        animate(box2,0)
+    }
+    btnArr[1].onclick=function(){
+        animate(box2,200.5)
+    }
+    btnArr[2].onclick=function(){
+        animate(box2,400)
+    }
+
+
+
+
+
+
+    //缓动动画封装
+    function animate(ele,target){
+        clearInterval(ele.timer) //清除定时器， 使用定时器，先清定时器
+        //定义定时器
+        ele.timer=setInterval(function(){
+            //获取步长
+            var step=(target-ele.offsetLeft)/10
+            //二次处理
+            step=step>0?Math.ceil(step):Math.floor(step)
+            //赋值
+            ele.style.left=ele.offsetLeft+step+"px"
+            //清除定时器
+            //距离小于步长时直接赋值
+            if(Math.abs(target-ele.offsetLeft)<Math.abs(step)){
+                ele.style.left=target+"px"
+                clearInterval(ele.timer)
+            }
+        },13)
+
+    }
+</script>
+</body>
+</html>

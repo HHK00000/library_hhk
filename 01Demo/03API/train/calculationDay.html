@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    var n=prompt("请输入年份")
+//    fn(n)
+//    function fn(n){
+//        if(n%4==0&&n%100!=0||n%400==0){
+//            alert("这是一个闰年")
+//        }else {
+//            alert("这不是一个闰年")
+//        }
+//    }
+
+
+    function getDays(year,month,day){
+        var months=[31,28,31,30,31,30,31,31,30,31,30,31]
+        var days=day
+        for(i=1;i<month;i++){
+            days+=months[i-1]
+        }
+        if(getRN(year)&&month>2){
+            days++
+        }
+        var str=year+"年"+month+"月"+day+"日 是"+year+"的第 "+days+" 天！";
+        alert(str);
+        return days
+    }
+    function getRN(y){
+        bool=false
+        if(y%4==0&&y%100!=0||y%400==0){
+            bool=true
+        }
+        return bool
+    }
+    // getDays(2017,12,9);
+    
+
+
+
+
+    //2018.07.18在git上下载之后  新增的一个函数
+    //此函数可以通过输入的日期，来输出这一天是今天第几天
+    //优点是：不用再在js中写死日期，可以方便的获取任意一天在一年中是第几天
+    //缺点是：只能输入类似20180718这样的8位日期
+    //具体步骤是：
+    //1，用prompt获取日期字符串，然后通过字符串截取，转化为年、月、日数字
+    //2，把三个值传给之前写的函数getDays中并调用
+    // var num=20180718
+    function getDate(num){
+        var year=num.slice(0,4)-0;
+        var month=num.slice(4,6);
+        month=(month.charAt(0)=='0'?month.slice(1):month)-0;
+        var day=num.slice(6);
+        day=(day.charAt(0)=='0'?day.slice(1):day)-0;
+        // var arr=[year,month,day];
+        // console.log(year,month,day);
+        getDays(year,month,day);
+    }
+    var num=prompt("请输入年月日：");
+    getDate(num);
+
+
+
+
+//初学时候写的代码
+//    function fn1(arr){
+//        var date=0
+//        if(fn(arr[0])) {
+//            if(arr[1]=1){
+//                date=arr[2]
+//            }
+//            if(arr[1]=2){
+//                date=31+arr[2]
+//            }
+//            if(arr[1]=3){
+//                date=31+28+arr[2]
+//            }
+//            if(arr[1]=4){
+//                date=31+28+31+arr[2]
+//            }
+//            if(arr[1]=5){
+//                date=31+28+31+30+arr[2]
+//            }
+//            if(arr[1]=6){
+//                date=31+28+31+30+31+arr[2]
+//            }
+//            if(arr[1]=7){
+//                date=31+28+31+30+31+30+arr[2]
+//            }
+//            if(arr[1]=8){
+//                date=31+28+31+30+31+30+31+arr[2]
+//            }
+//            if(arr[1]=9){
+//                date=31+28+31+30+31+30+31+31+arr[2]
+//            }
+//            if(arr[1]=10){
+//                date=31+28+31+30+31+30+31+31+30+arr[2]
+//            }
+//            if(arr[1]=11){
+//                date=31+28+31+30+31+30+31+31+30+31+arr[2]
+//            }
+//            if(arr[1]=12){
+//                date=31+28+31+30+31+30+31+31+30+31+30+arr[2]
+//            }
+//        }else {
+//            if(arr[1]=1){
+//                date=arr[2]
+//            }
+//            if(arr[1]=2){
+//                date=31+arr[2]
+//            }
+//            if(arr[1]=3){
+//                date=31+29+arr[2]
+//            }
+//            if(arr[1]=4){
+//                date=31+28+31+arr[2]
+//            }
+//            if(arr[1]=5){
+//                date=31+28+31+30+arr[2]
+//            }
+//            if(arr[1]=6){
+//                date=31+28+31+30+31+arr[2]
+//            }
+//            if(arr[1]=7){
+//                date=31+28+31+30+31+30+arr[2]
+//            }
+//            if(arr[1]=8){
+//                date=31+28+31+30+31+30+31+arr[2]
+//            }
+//            if(arr[1]=9){
+//                date=31+28+31+30+31+30+31+31+arr[2]
+//            }
+//            if(arr[1]=10){
+//                date=31+28+31+30+31+30+31+31+30+arr[2]
+//            }
+//            if(arr[1]=11){
+//                date=31+28+31+30+31+30+31+31+30+31+arr[2]
+//            }
+//            if(arr[1]=12){
+//                date=31+28+31+30+31+30+31+31+30+31+30+arr[2]
+//            }
+//        }
+//        return date
+//    }
+//
+//    alert(fn1([2000,1,1]))
+</script>
+</body>
+</html>

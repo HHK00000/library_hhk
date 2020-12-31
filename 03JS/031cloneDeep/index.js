@@ -1,5 +1,4 @@
 
-
 // js深拷贝一个对象
 function deepClone(obj) {//递归 借用原型
     var target = {};
