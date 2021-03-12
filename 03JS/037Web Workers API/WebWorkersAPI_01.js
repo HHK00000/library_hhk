@@ -19,7 +19,7 @@ worker.postMessage([
 
 // 接收子线程传回来的数据
 worker.onmessage = function (e) {
-    console.log(e, '01 message');
+    console.log(e.data, '01 message');
 };
 
 
