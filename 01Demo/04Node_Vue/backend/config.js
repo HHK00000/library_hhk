@@ -9,8 +9,7 @@ module.exports = {
     }
   },
   cors: {
-    // origin: 'http://127.0.0.1:3000',
-    origin: 'http://localhost:3000',
+    origin: 'http://127.0.0.1:3000', //后端设置 CORS 跨域
     credentials: true,
     headers: 'Content-type,Content-Length,Authorization,Accept,X-Requested-With',
     methods: 'PUT,POST,GET,DELETE,OPTIONS,HEAD'

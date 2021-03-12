@@ -1,14 +1,18 @@
 <template>
-    <div> han </div>
+  <div id="app">
+    <router-view></router-view>
+  </div>
 </template>
+
 <script>
-    export default {
-        data () {
-            return {
-              text: 'han'
-            }
-        }
-    }
+export default {
+
+}
 </script>
+
 <style>
+html, body, #app {
+  width: 100%;
+  height: 100%;
+}
 </style>

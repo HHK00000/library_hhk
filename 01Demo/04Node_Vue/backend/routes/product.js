@@ -14,7 +14,13 @@ route.use(async (req, res, next) => {
 
 /* 接口调用 */
 route.get('/info', (req, res) => {
-  res.send('OK');
+  let obj = {
+    error: 0,
+    status: 1,
+    error_message: '',
+    data: JSON.parse(req.$PRODUCT)
+  }
+  res.send(obj);
 })
 
 module.exports = route;

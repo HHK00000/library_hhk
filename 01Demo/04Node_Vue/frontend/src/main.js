@@ -1,10 +1,11 @@
-// main.js
 import Vue from 'vue'
-import App from './app.vue'
+import router from './router'
+import App from './App.vue'
+import axios from 'axios'
 
-const root = document.createElement('div')
-document.body.appendChild(root)
+Vue.prototype.$axios = axios
 
 new Vue({
-    render: (h) => h(App)
-}).$mount(root)
+  router,
+  render: h => h(App)
+}).$mount('#app');
